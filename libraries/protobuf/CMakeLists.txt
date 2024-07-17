@@ -6,7 +6,7 @@ SET(CMAKE_CXX_FLAGS "-g -Wall -std=c++11")
 set(PROTO_LIBS)
 
 # Read the lib files from the text file and append to the LIBS variable
-file(STRINGS "C:/Users/rizzo/OneDrive/Desktop/lib_files_list.txt" lib_files)
+file(STRINGS ""../../lib_files_list.txt"" lib_files)
 list(APPEND PROTO_LIBS ${lib_files})
 
 find_package(Protobuf REQUIRED)
