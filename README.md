@@ -34,3 +34,10 @@ Simple max external with a protobuf dependency which gives Error 193 on M4L.
 3. **Build the Visual Studio Solution**
    - Open the generated Visual Studio solution.
    - Build the solution using the `/MTd` flag for Runtime Library and static linking to avoid manually configuring Max to find the DLLs.
+  
+## Notes
+If you are getting this error while building on Visual Studio:
+     ```sh
+     LNK1107: invalid or corrupt file: cannot read at 0x370
+     ```
+That's because for some reason instead of the static library protobuf it's linking the dll. to fix this just go to Properties > Linker > Input and change the bin/protobufd.dll to lib/protobufd.lib.
