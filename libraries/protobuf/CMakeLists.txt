@@ -2,11 +2,15 @@ PROJECT(rpc)
 CMAKE_MINIMUM_REQUIRED (VERSION 3.0.0)
 SET(CMAKE_CXX_FLAGS "-g -Wall -std=c++11")
 
+# Set the runtime library to /MTd for debug builds
+set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} /MTd")
+set(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG} /MTd")
+
 # Define an empty LIBS variable
 set(PROTO_LIBS)
 
 # Read the lib files from the text file and append to the LIBS variable
-file(STRINGS ""../../lib_files_list.txt"" lib_files)
+file(STRINGS "../../lib_files_list.txt" lib_files)
 list(APPEND PROTO_LIBS ${lib_files})
 
 find_package(Protobuf REQUIRED)

@@ -14,6 +14,8 @@ def find_lib_files(directory, output_file):
     # Write the list of .lib files to the output file
     with open(output_file, 'w') as f:
         for lib_file in lib_files:
+            # Replace backslashes with forward slashes
+            lib_file = lib_file.replace('\\', '/')
             f.write(lib_file + '\n')
     
     print(f"Found {len(lib_files)} .lib files. List saved to {output_file}")

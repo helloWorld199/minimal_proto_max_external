@@ -25,6 +25,7 @@ find_package(Protobuf REQUIRED)
 
 INCLUDE_DIRECTORIES(${CMAKE_CURRENT_BINARY_DIR})
 INCLUDE_DIRECTORIES(${Protobuf_INCLUDE_DIRS})
+INCLUDE_DIRECTORIES("libraries/protobuf/solution/proto/Debug")
 find_package(Protobuf REQUIRED)
 ######################
 
@@ -40,18 +41,18 @@ set( SOURCE_FILES
 
 add_library( 
 	${PROJECT_NAME} 
-	MODULE
+	STATIC
 	${SOURCE_FILES}
 	"libraries/protobuf/proto/message.proto"
 )
 
-set(proto_lib "libraries/protobuf/solution/proto/Debug/proto.lib")
+set(proto_lib "C:/Users/rizzo/OneDrive/Desktop/minimal_proto_max_external/libraries/protobuf/solution/proto/Debug/proto")
 
 
 include(${C74_MIN_API_DIR}/script/min-posttarget.cmake)
 
 target_link_libraries(
-	my_simple_external
+	${PROJECT_NAME}
 	PRIVATE
 		${Protobuf_LIBRARIES}
         ${PROTO_LIBS}
