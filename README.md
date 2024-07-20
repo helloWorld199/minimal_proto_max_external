@@ -40,4 +40,4 @@ If you are getting this error while building on Visual Studio:
      ```sh
      LNK1107: invalid or corrupt file: cannot read at 0x370
      ```
-That's because for some reason instead of the static library protobuf it's linking the dll. to fix this just go to Properties > Linker > Input and change the bin/protobufd.dll to lib/protobufd.lib.
+That's because for some reason vcpkg.cmake is linking libprotobuf.dll instead of libprotobuf.lib. To fix this just go to Properties > Linker > Input and change the C:\vcpkg\installed\x64-windows\debug\bin\libprotobufd.dll C:\vcpkg\installed\x64-windows\debug\lib\protobufd.lib
