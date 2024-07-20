@@ -46,7 +46,7 @@ add_library(
 	"libraries/protobuf/proto/message.proto"
 )
 
-set(proto_lib "C:/Users/rizzo/OneDrive/Desktop/minimal_proto_max_external/libraries/protobuf/solution/proto/Debug/proto")
+set(proto_lib "${CMAKE_SOURCE_DIR}/libraries/protobuf/solution/proto/Debug/proto")
 
 
 include(${C74_MIN_API_DIR}/script/min-posttarget.cmake)
