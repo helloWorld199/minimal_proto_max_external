@@ -1,5 +1,13 @@
 Simple max external with a protobuf dependency which gives Error 193 on M4L.
 
+## Notes
+If you are getting this error while building on Visual Studio:
+     ```sh
+     LNK1107: invalid or corrupt file: cannot read at 0x370
+     ```
+That's because for some reason vcpkg.cmake is linking libprotobuf.dll instead of libprotobuf.lib. To fix this just go to Properties > Linker > Input and change the C:\vcpkg\installed\x64-windows\debug\bin\libprotobufd.dll C:\vcpkg\installed\x64-windows\debug\lib\protobufd.lib
+
+
 ## Dependencies
 
 1. **Install Protobuf**
@@ -25,7 +33,7 @@ Simple max external with a protobuf dependency which gives Error 193 on M4L.
      ```
    - Open the solution and build proto
      
-2. **Run CMake**
+2. **Build the external**
    - From the main folder, run the following command:
      ```sh
      cmake -G "Visual Studio 17 2022" -S . -B solution --preset debug
@@ -35,9 +43,3 @@ Simple max external with a protobuf dependency which gives Error 193 on M4L.
    - Open the generated Visual Studio solution.
    - Build the solution using the `/MTd` flag for Runtime Library and static linking to avoid manually configuring Max to find the DLLs.
   
-## Notes
-If you are getting this error while building on Visual Studio:
-     ```sh
-     LNK1107: invalid or corrupt file: cannot read at 0x370
-     ```
-That's because for some reason vcpkg.cmake is linking libprotobuf.dll instead of libprotobuf.lib. To fix this just go to Properties > Linker > Input and change the C:\vcpkg\installed\x64-windows\debug\bin\libprotobufd.dll C:\vcpkg\installed\x64-windows\debug\lib\protobufd.lib
