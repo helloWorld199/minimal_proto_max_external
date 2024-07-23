@@ -38,8 +38,5 @@ That's because for some reason vcpkg.cmake is linking libprotobuf.dll instead of
      ```sh
      cmake -G "Visual Studio 17 2022" -S . -B solution --preset debug
      ```
-
-3. **Build the Visual Studio Solution**
-   - Open the generated Visual Studio solution.
-   - Build the solution using the `/MTd` flag for Runtime Library and static linking to avoid manually configuring Max to find the DLLs.
+   - Build the "minimal_proto_max_external" solution
   
